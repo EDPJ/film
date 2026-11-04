@@ -1,6 +1,7 @@
 /* =========================================================
    SITE CONFIG – Farben, Logos, Schrift, Bilder
-   Alles Wichtige für das Erscheinungsbild steht hier.
+   Keine externen Einbindungen, keine Schriftdateien:
+   es werden immer Systemschriften verwendet.
    ========================================================= */
 window.SITE_CONFIG = {
 
@@ -21,14 +22,13 @@ window.SITE_CONFIG = {
     cream:          "#FBF9F5"   // Text auf dunklen Flächen
   },
 
-  /* ---------- Schriftarten ---------- */
+  /* ---------- Schriftarten: nur Systemschriften ----------
+     heading: Handschrift-Look für Überschriften und Navigation.
+              Es wird die erste auf dem Gerät vorhandene Schrift genutzt.
+     body:    neutrale Systemschrift für Fließtext.            */
   fonts: {
-    heading: "'Patrick Hand SC', 'Comic Sans MS', cursive",       // handgezeichnet, Kapitälchen
-    body:    "'Karla', system-ui, -apple-system, 'Segoe UI', sans-serif",
-    // Alternativen für den Handschrift-Look: "Gaegu", "Short Stack", "Kalam"
-    // DSGVO-Hinweis: Schriften besser selbst hosten (z. B. über google-webfonts-helper)
-    // und diese URL durch lokale @font-face-Regeln ersetzen.
-    googleUrl: "https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Patrick+Hand+SC&display=swap"
+    heading: "'Segoe Print', 'Bradley Hand', 'Marker Felt', 'Chalkboard SE', 'Comic Sans MS', 'Comic Neue', cursive",
+    body:    "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
 
   /* ---------- Logo-Links ---------- */
@@ -38,30 +38,60 @@ window.SITE_CONFIG = {
     favicon: "assets/logo-terracotta.svg"
   },
 
-  /* ---------- Platzhalterbilder (später durch eigene ersetzen) ---------- */
-  images: {
-    hero:  "https://picsum.photos/seed/glut-hero/1920/1080",
-    about: "https://picsum.photos/seed/glut-about/900/1100",
+  /* ---------- Bilder ----------
+     Aktuell: lokal erzeugte Platzhalter (placeholder(...)).
+     Später einfach durch eigene Dateien ersetzen, z. B. "assets/film1.jpg". */
+  images: {}   // wird unten befüllt
+};
+
+/* ---------- Lokaler Platzhalterbild-Generator (SVG als Data-URI) ---------- */
+function placeholder(w, h, bg, fg, label) {
+  const s = Math.min(w, h) / 100;                 // Skalierung des Logo-Motivs
+  const ox = (w - 100 * s) / 2, oy = (h - 100 * s) / 2;
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice">` +
+      `<rect width="100%" height="100%" fill="${bg}"/>` +
+      `<g transform="translate(${ox} ${oy}) scale(${s})" opacity=".35">` +
+        `<g fill="none" stroke="${fg}" stroke-width="10">` +
+          `<path d="M8 52V38L24 26V6"/><path d="M42 52V38L58 26V6"/><path d="M76 52V38L92 26V6"/>` +
+        `</g>` +
+        `<g fill="${fg}" fill-rule="evenodd">` +
+          `<path d="M6 96A19 19 0 0 1 44 96Z M20 88a5 5 0 1 0 10 0a5 5 0 1 0-10 0Z"/>` +
+          `<path d="M46 96A19 19 0 0 1 84 96Z M60 88a5 5 0 1 0 10 0a5 5 0 1 0-10 0Z"/>` +
+        `</g>` +
+      `</g>` +
+      `<text x="50%" y="${h - 24}" text-anchor="middle" font-family="sans-serif" font-size="${Math.round(h / 28)}" fill="${fg}" opacity=".6">${label}</text>` +
+    `</svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+(function buildImages() {
+  const c = window.SITE_CONFIG.colors;
+  const P = placeholder;
+  window.SITE_CONFIG.images = {
+    hero:  P(1920, 1080, c.terracottaDark, c.cream, "Platzhalter Hero"),
+    about: P(900, 1100,  c.paper,          c.terracotta, "Platzhalter About"),
     films: [
-      "https://picsum.photos/seed/glut-film1/800/1000",
-      "https://picsum.photos/seed/glut-film2/800/1000",
-      "https://picsum.photos/seed/glut-film3/800/1000",
-      "https://picsum.photos/seed/glut-film4/800/1000",
-      "https://picsum.photos/seed/glut-film5/800/1000",
-      "https://picsum.photos/seed/glut-film6/800/1000"
+      P(800, 1000, c.blue,       c.cream,          "Platzhalter Film 1"),
+      P(800, 1000, c.paper,      c.terracotta,     "Platzhalter Film 2"),
+      P(800, 1000, c.terracotta, c.cream,          "Platzhalter Film 3"),
+      P(800, 1000, c.blueDark,   c.cream,          "Platzhalter Film 4"),
+      P(800, 1000, c.background, c.terracotta,     "Platzhalter Film 5"),
+      P(800, 1000, c.blue,       c.terracottaDark, "Platzhalter Film 6")
     ],
     team: [
-      "https://picsum.photos/seed/glut-team1/600/800",
-      "https://picsum.photos/seed/glut-team2/600/800",
-      "https://picsum.photos/seed/glut-team3/600/800"
+      P(600, 800, c.paper,    c.terracotta, "Platzhalter Person 1"),
+      P(600, 800, c.blue,     c.cream,      "Platzhalter Person 2"),
+      P(600, 800, c.blueDark, c.cream,      "Platzhalter Person 3")
     ]
-  }
-};
+  };
+})();
 
 /* ---------- Theme sofort anwenden (läuft im <head>, kein Flackern) ---------- */
 (function applyTheme() {
-  const c = window.SITE_CONFIG.colors;
-  const f = window.SITE_CONFIG.fonts;
+  const cfg = window.SITE_CONFIG;
+  const c = cfg.colors;
+  const f = cfg.fonts;
   const root = document.documentElement.style;
 
   root.setProperty("--background",      c.background);
@@ -80,16 +110,9 @@ window.SITE_CONFIG = {
   css.href = "css/style.css";
   document.head.appendChild(css);
 
-  if (f.googleUrl) {
-    const font = document.createElement("link");
-    font.rel = "stylesheet";
-    font.href = f.googleUrl;
-    document.head.appendChild(font);
-  }
-
   const icon = document.createElement("link");
   icon.rel = "icon";
   icon.type = "image/svg+xml";
-  icon.href = window.SITE_CONFIG.logos.favicon;
+  icon.href = cfg.logos.favicon;
   document.head.appendChild(icon);
 })();
