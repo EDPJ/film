@@ -53,11 +53,11 @@ window.SITE_CONTENT = {
       types:   { feature: "Spielfilm", documentary: "Dokumentarfilm", short: "Kurzfilm" },
       empty: "Keine Filme in dieser Kategorie.",
       items: [
-        { title: "Filmtitel Eins",  year: "2025", type: "feature",     genre: "Drama",     logline: "Platzhalter: Eine Familie, ein Sommer und ein Geheimnis, das nicht länger schweigen will." },
+        { title: "Filmtitel Eins",  year: "2025", type: "feature",     genre: "Drama",         logline: "Platzhalter: Eine Familie, ein Sommer und ein Geheimnis, das nicht länger schweigen will." },
         { title: "Filmtitel Zwei",  year: "2024", type: "documentary", genre: "Dokumentation", logline: "Platzhalter: Ein Porträt über Menschen, die ihren Alltag mit Humor meistern." },
-        { title: "Filmtitel Drei",  year: "2024", type: "short",       genre: "Komödie",   logline: "Platzhalter: Ein Missverständnis wächst sich in fünfzehn Minuten zum Chaos aus." },
-        { title: "Filmtitel Vier",  year: "2023", type: "feature",     genre: "Roadmovie", logline: "Platzhalter: Zwei Fremde, ein kaputter Bus und eine Reise ohne Ziel." },
-        { title: "Filmtitel Fünf",  year: "2022", type: "documentary", genre: "Gesellschaft", logline: "Platzhalter: Ein Dorf zwischen Aufbruch und Abschied." },
+        { title: "Filmtitel Drei",  year: "2024", type: "short",       genre: "Komödie",       logline: "Platzhalter: Ein Missverständnis wächst sich in fünfzehn Minuten zum Chaos aus." },
+        { title: "Filmtitel Vier",  year: "2023", type: "feature",     genre: "Roadmovie",     logline: "Platzhalter: Zwei Fremde, ein kaputter Bus und eine Reise ohne Ziel." },
+        { title: "Filmtitel Fünf",  year: "2022", type: "documentary", genre: "Gesellschaft",  logline: "Platzhalter: Ein Dorf zwischen Aufbruch und Abschied." },
         { title: "Filmtitel Sechs", year: "2021", type: "short",       genre: "Experimentell", logline: "Platzhalter: Bilder, Klänge und Erinnerungen in einer einzigen Einstellung." }
       ]
     },
@@ -109,8 +109,8 @@ window.SITE_CONTENT = {
       sections: [
         { h: "1. Verantwortlicher", p: ["Morgenglut Filmproduktion GmbH (Platzhalter), Musterstraße 1, 12345 Musterstadt, E-Mail: hallo@example.com"] },
         { h: "2. Hosting und Server-Logfiles", p: ["Platzhaltertext: Beim Aufruf dieser Website werden automatisch Informationen (z. B. IP-Adresse, Datum, Uhrzeit, aufgerufene Seite) in Server-Logfiles gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."] },
-        { h: "3. Schriftarten", p: ["Platzhaltertext: Diese Website verwendet Schriftarten. Werden sie von externen Servern geladen, wird dabei die IP-Adresse übertragen. Empfohlen: Schriftarten lokal einbinden."] },
-        { h: "4. Platzhalterbilder", p: ["Platzhaltertext: Während der Entwicklung werden Platzhalterbilder von einem externen Dienst geladen. Diese sollten vor dem Livegang durch eigene Bilder ersetzt werden."] },
+        { h: "3. Schriftarten", p: ["Diese Website verwendet ausschließlich Systemschriften, die bereits auf deinem Gerät installiert sind. Es werden keine Schriften geladen und keine Daten an Schriftdienste übertragen."] },
+        { h: "4. Externe Inhalte", p: ["Diese Website lädt keine Inhalte, Skripte oder Bilder von externen Servern Dritter."] },
         { h: "5. Spracheinstellung", p: ["Deine gewählte Sprache wird lokal in deinem Browser (localStorage) gespeichert. Es werden keine Daten an uns übertragen."] },
         { h: "6. Kontaktaufnahme", p: ["Platzhaltertext: Wenn du uns per E-Mail kontaktierst, speichern wir deine Angaben zur Bearbeitung deiner Anfrage."] },
         { h: "7. Deine Rechte", p: ["Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren."] }
@@ -172,11 +172,11 @@ window.SITE_CONTENT = {
       types:   { feature: "Feature", documentary: "Documentary", short: "Short" },
       empty: "No films in this category.",
       items: [
-        { title: "Film Title One",   year: "2025", type: "feature",     genre: "Drama",       logline: "Placeholder: A family, a summer and a secret that refuses to stay silent." },
-        { title: "Film Title Two",   year: "2024", type: "documentary", genre: "Documentary", logline: "Placeholder: A portrait of people who meet everyday life with humour." },
-        { title: "Film Title Three", year: "2024", type: "short",       genre: "Comedy",      logline: "Placeholder: A misunderstanding grows into chaos within fifteen minutes." },
-        { title: "Film Title Four",  year: "2023", type: "feature",     genre: "Road movie",  logline: "Placeholder: Two strangers, a broken-down bus and a journey without a destination." },
-        { title: "Film Title Five",  year: "2022", type: "documentary", genre: "Society",     logline: "Placeholder: A village between new beginnings and farewells." },
+        { title: "Film Title One",   year: "2025", type: "feature",     genre: "Drama",        logline: "Placeholder: A family, a summer and a secret that refuses to stay silent." },
+        { title: "Film Title Two",   year: "2024", type: "documentary", genre: "Documentary",  logline: "Placeholder: A portrait of people who meet everyday life with humour." },
+        { title: "Film Title Three", year: "2024", type: "short",       genre: "Comedy",       logline: "Placeholder: A misunderstanding grows into chaos within fifteen minutes." },
+        { title: "Film Title Four",  year: "2023", type: "feature",     genre: "Road movie",   logline: "Placeholder: Two strangers, a broken-down bus and a journey without a destination." },
+        { title: "Film Title Five",  year: "2022", type: "documentary", genre: "Society",      logline: "Placeholder: A village between new beginnings and farewells." },
         { title: "Film Title Six",   year: "2021", type: "short",       genre: "Experimental", logline: "Placeholder: Images, sounds and memories in a single shot." }
       ]
     },
@@ -193,17 +193,17 @@ window.SITE_CONTENT = {
       values: {
         title: "What we stand for",
         items: [
-          { title: "Attitude",    text: "Placeholder text: We tell stories that want something." },
-          { title: "Closeness",   text: "Placeholder text: We work as equals with people in front of and behind the camera." },
+          { title: "Attitude",      text: "Placeholder text: We tell stories that want something." },
+          { title: "Closeness",     text: "Placeholder text: We work as equals with people in front of and behind the camera." },
           { title: "Craftsmanship", text: "Placeholder text: We take time for details, texture and sound." }
         ]
       },
       team: {
         title: "The team",
         members: [
-          { name: "First Last", role: "Production",      text: "Placeholder text: Short bio in one or two sentences." },
+          { name: "First Last", role: "Production",          text: "Placeholder text: Short bio in one or two sentences." },
           { name: "First Last", role: "Direction & Writing", text: "Placeholder text: Short bio in one or two sentences." },
-          { name: "First Last", role: "Post-production", text: "Placeholder text: Short bio in one or two sentences." }
+          { name: "First Last", role: "Post-production",     text: "Placeholder text: Short bio in one or two sentences." }
         ]
       }
     },
@@ -228,8 +228,8 @@ window.SITE_CONTENT = {
       sections: [
         { h: "1. Controller", p: ["Morgenglut Filmproduktion GmbH (placeholder), Musterstrasse 1, 12345 Musterstadt, email: hallo@example.com"] },
         { h: "2. Hosting and server log files", p: ["Placeholder text: When you visit this website, information (e.g. IP address, date, time, requested page) is automatically stored in server log files. The legal basis is Art. 6 (1) (f) GDPR."] },
-        { h: "3. Fonts", p: ["Placeholder text: This website uses web fonts. If they are loaded from external servers, your IP address is transmitted. Recommendation: host fonts locally."] },
-        { h: "4. Placeholder images", p: ["Placeholder text: During development, placeholder images are loaded from an external service. Replace them with your own images before going live."] },
+        { h: "3. Fonts", p: ["This website uses only system fonts that are already installed on your device. No fonts are downloaded and no data is transmitted to font services."] },
+        { h: "4. External content", p: ["This website does not load any content, scripts or images from third-party servers."] },
         { h: "5. Language setting", p: ["Your selected language is stored locally in your browser (localStorage). No data is transmitted to us."] },
         { h: "6. Contact", p: ["Placeholder text: If you contact us by email, we store your details to process your enquiry."] },
         { h: "7. Your rights", p: ["You have the right to access, rectification, erasure, restriction of processing, data portability and objection. You may also lodge a complaint with a data protection supervisory authority."] }
