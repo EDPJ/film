@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo">
+  <g fill="none" stroke="#FBF9F5" stroke-width="10">
+    <path d="M8 52V38L24 26V6"/>
+    <path d="M42 52V38L58 26V6"/>
+    <path d="M76 52V38L92 26V6"/>
+  </g>
+  <g fill="#FBF9F5" fill-rule="evenodd">
+    <path d="M6 96A19 19 0 0 1 44 96Z M20 88a5 5 0 1 0 10 0a5 5 0 1 0-10 0Z"/>
+    <path d="M46 96A19 19 0 0 1 84 96Z M60 88a5 5 0 1 0 10 0a5 5 0 1 0-10 0Z"/>
+  </g>
+</svg>
