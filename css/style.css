@@ -62,7 +62,7 @@ p + p { margin-top: 1rem; }
 .lang-switch {
   justify-self: start; display: inline-flex; gap: .35rem; align-items: center;
   background: none; border: 1.5px solid var(--terracotta); border-radius: 999px;
-  padding: .3rem .8rem; cursor: pointer;
+  padding: .3rem .8rem; cursor: pointer; white-space: nowrap;
   font-family: var(--font-heading); font-size: 1rem; letter-spacing: .06em;
   color: var(--terracotta); opacity: 1;
 }
@@ -76,17 +76,17 @@ p + p { margin-top: 1rem; }
   color: var(--terracotta); font-family: var(--font-heading);
   font-size: 1.3rem; letter-spacing: .04em; white-space: nowrap;
 }
-.brand img { height: 40px; width: auto; }
+.brand img { height: 40px; width: auto; flex-shrink: 0; }
 
-.nav-desktop { justify-self: end; display: flex; gap: 2rem; }
+.nav-desktop { justify-self: end; display: flex; gap: 2rem; white-space: nowrap; }
 .nav-desktop a {
   text-decoration: none; font-family: var(--font-heading); font-size: 1.1rem;
-  letter-spacing: .04em; color: var(--ink); padding: .25rem 0;
+  letter-spacing: .04em; color: var(--ink); padding: .25rem 0; white-space: nowrap;
   border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
 }
 .nav-desktop a:hover, .nav-desktop a.is-active { color: var(--terracotta); border-color: var(--terracotta); }
 
-/* Burger */
+/* Burger (Standard: aus; wird von main.js über body.compact-nav aktiviert) */
 .burger {
   display: none; justify-self: end; width: 46px; height: 46px;
   background: none; border: 0; cursor: pointer;
@@ -100,7 +100,7 @@ body.menu-open .burger span:nth-child(1) { transform: translateY(9px) rotate(45d
 body.menu-open .burger span:nth-child(2) { opacity: 0; }
 body.menu-open .burger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-/* Mobiles Menü */
+/* Mobiles Menü (nur im kompakten Modus überhaupt vorhanden) */
 .mobile-menu {
   position: fixed; inset: var(--header-h) 0 0 0; z-index: 40;
   background: var(--terracotta); color: var(--cream);
@@ -109,6 +109,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-9px) rotate(-4
   opacity: 0; visibility: hidden; transform: translateY(-10px);
   transition: opacity .3s, transform .3s, visibility .3s;
 }
+body:not(.compact-nav) .mobile-menu { display: none; }
 body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: none; }
 .mobile-menu a { text-decoration: none; font-family: var(--font-heading); letter-spacing: .04em; color: var(--cream); }
 .mobile-menu__main { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
@@ -118,12 +119,10 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: none; 
 .mobile-menu a.is-active { text-decoration: underline; text-underline-offset: 8px; }
 .mobile-menu__logo { width: 64px; opacity: .9; }
 
-@media (max-width: 900px) {
-  .nav-desktop { display: none; }
-  .burger { display: flex; }
-  .brand { font-size: 1.1rem; }
-}
-@media (max-width: 480px) { .brand__name { display: none; } }
+/* Kompakt-Modi (per JS gesetzt, wenn der Platz nicht reicht) */
+body.compact-nav .nav-desktop { display: none; }
+body.compact-nav .burger { display: flex; }
+body.compact-brand .brand__name { display: none; }
 
 /* ---------- Medien / Bilder ---------- */
 .media { position: relative; overflow: hidden; background: var(--paper); border-radius: var(--radius); }
