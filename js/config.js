@@ -2,6 +2,7 @@
    SITE CONFIG – Farben, Logos, Schrift, Bilder
    Keine externen Einbindungen, keine Schriftdateien:
    es werden immer Systemschriften verwendet.
+   Das Stylesheet wird direkt im <head> der HTML-Seiten geladen.
    ========================================================= */
 window.SITE_CONFIG = {
 
@@ -87,7 +88,7 @@ function placeholder(w, h, bg, fg, label) {
   };
 })();
 
-/* ---------- Theme sofort anwenden (läuft im <head>, kein Flackern) ---------- */
+/* ---------- Theme anwenden (läuft im <head>) ---------- */
 (function applyTheme() {
   const cfg = window.SITE_CONFIG;
   const c = cfg.colors;
@@ -104,11 +105,6 @@ function placeholder(w, h, bg, fg, label) {
   root.setProperty("--cream",           c.cream);
   root.setProperty("--font-heading",    f.heading);
   root.setProperty("--font-body",       f.body);
-
-  const css = document.createElement("link");
-  css.rel = "stylesheet";
-  css.href = "css/style.css";
-  document.head.appendChild(css);
 
   const icon = document.createElement("link");
   icon.rel = "icon";
