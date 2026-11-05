@@ -1,5 +1,7 @@
 /* =========================================================
    STYLE – Farben & Schriften kommen aus js/config.js
+   Hover-Effekte gelten nur bei Geräten mit Maus (hover: hover),
+   damit auf Touch-Geräten (iPad, Handy) nichts "hängen bleibt".
    ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
@@ -25,6 +27,9 @@ body.menu-open { overflow: hidden; }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; }
+
+/* Keine graue Tipp-Markierung auf iOS bei Bedienelementen */
+button, a { -webkit-tap-highlight-color: transparent; }
 
 h1, h2, h3 {
   font-family: var(--font-heading);
@@ -75,7 +80,9 @@ p + p { margin-top: 1rem; }
 .lang-switch span { opacity: .55; }
 .lang-switch span.is-active { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
 .lang-switch .lang-switch__sep { opacity: .4; }
-.lang-switch:hover { background: var(--terracotta); color: var(--cream); }
+@media (hover: hover) {
+  .lang-switch:hover { background: var(--terracotta); color: var(--cream); }
+}
 
 .brand {
   display: flex; align-items: center; gap: .6rem; text-decoration: none;
@@ -90,7 +97,10 @@ p + p { margin-top: 1rem; }
   letter-spacing: .04em; color: var(--ink); padding: .25rem 0; white-space: nowrap;
   border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
 }
-.nav-desktop a:hover, .nav-desktop a.is-active { color: var(--terracotta); border-color: var(--terracotta); }
+.nav-desktop a.is-active { color: var(--terracotta); border-color: var(--terracotta); }
+@media (hover: hover) {
+  .nav-desktop a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+}
 
 /* Burger (Standard: aus; wird von main.js über body.compact-nav aktiviert) */
 .burger {
@@ -189,12 +199,16 @@ body.compact-brand .brand__name { display: none; }
   border-radius: 999px; border: 2px solid var(--terracotta);
   transition: background .2s, color .2s;
 }
-.btn:hover { background: var(--terracotta-dark); border-color: var(--terracotta-dark); }
 .btn--light { background: var(--cream); color: var(--terracotta); border-color: var(--cream); margin-top: 0; }
-.btn--light:hover { background: transparent; color: var(--cream); border-color: var(--cream); }
+@media (hover: hover) {
+  .btn:hover { background: var(--terracotta-dark); border-color: var(--terracotta-dark); }
+  .btn--light:hover { background: transparent; color: var(--cream); border-color: var(--cream); }
+}
 
 .text-link { font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: .04em; color: var(--terracotta); text-decoration: none; }
-.text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+@media (hover: hover) {
+  .text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+}
 
 /* ---------- Filter ---------- */
 .chips { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 2rem; }
@@ -204,11 +218,16 @@ body.compact-brand .brand__name { display: none; }
   font-family: var(--font-heading); font-size: 1rem; letter-spacing: .04em;
   transition: background .2s, color .2s;
 }
-.chip:hover, .chip.is-active { background: var(--terracotta); color: var(--cream); }
+.chip.is-active { background: var(--terracotta); color: var(--cream); }
+@media (hover: hover) {
+  .chip:hover { background: var(--terracotta); color: var(--cream); }
+}
 
 /* ---------- Film-Karten ---------- */
 .film-card .media img { transition: transform .5s ease; }
-.film-card:hover .media img { transform: scale(1.05); }
+@media (hover: hover) {
+  .film-card:hover .media img { transform: scale(1.05); }
+}
 .film-card__body { padding-top: 1rem; }
 .film-card__meta { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--blue-dark); font-weight: 600; margin-bottom: .25rem; }
 
@@ -239,7 +258,9 @@ body.compact-brand .brand__name { display: none; }
 .footer__name { font-family: var(--font-heading); font-size: 1.4rem; letter-spacing: .04em; }
 .site-footer h3 { color: var(--cream); font-size: 1.2rem; }
 .site-footer a { text-decoration: none; }
-.site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (hover: hover) {
+  .site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
 .footer__links { list-style: none; padding: 0; }
 .footer__bottom { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid rgba(251, 249, 245, .25); opacity: .85; }
 @media (max-width: 700px) { .footer__grid { grid-template-columns: 1fr; } }
