@@ -224,8 +224,7 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: none; 
 .band__inner p { margin-top: 1rem; }
 
 /* ---------- Rechtstexte ---------- */
-.legal { max-width: 760px; }
-.legal__block { margin-bottom: 2rem; }
+.legal__block { max-width: 760px; margin-bottom: 2rem; }
 .legal h2 { font-size: 1.6rem; margin-bottom: .5rem; }
 
 /* ---------- Footer ---------- */
