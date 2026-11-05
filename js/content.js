@@ -18,7 +18,8 @@ window.SITE_CONTENT = {
       home: "Startseite", films: "Filme", about: "About Us",
       imprint: "Impressum", privacy: "Datenschutz",
       menuOpen: "Menü öffnen", menuClose: "Menü schließen",
-      langLabel: "Sprache wechseln zu Englisch", mainNav: "Hauptnavigation"
+      langLabel: "Sprache wechseln zu Englisch", mainNav: "Hauptnavigation",
+      skip: "Zum Inhalt springen"
     },
     home: {
       hero: {
@@ -35,7 +36,6 @@ window.SITE_CONTENT = {
         ],
         cta: "Mehr über uns"
       },
-      featured: { title: "Ausgewählte Filme", all: "Alle Filme ansehen" },
       quote: {
         text: "„Platzhalterzitat: Ein guter Film wärmt noch lange nach dem Abspann.“",
         cite: "– Platzhalter-Name, Festivaljury"
@@ -90,35 +90,34 @@ window.SITE_CONTENT = {
     },
     imprint: {
       title: "Impressum",
-      note: "Platzhalter – bitte durch die echten Angaben ersetzen und rechtlich prüfen lassen.",
       sections: [
-        { h: "Angaben gemäß § 5 DDG", p: ["Morgenglut Filmproduktion GmbH (Platzhalter)<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland"] },
+        { h: "Angaben gemäß § 5 DDG", p: ["Morgenglut Filmproduktion GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland"] },
         { h: "Vertreten durch", p: ["Vorname Nachname, Geschäftsführung"] },
         { h: "Kontakt", p: ["Telefon: +49 (0) 123 456789<br>E-Mail: hallo@example.com"] },
         { h: "Registereintrag", p: ["Eintragung im Handelsregister.<br>Registergericht: Amtsgericht Musterstadt<br>Registernummer: HRB 00000"] },
         { h: "Umsatzsteuer-ID", p: ["Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE000000000"] },
         { h: "Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)", p: ["Vorname Nachname, Anschrift wie oben"] },
-        { h: "Haftung für Inhalte", p: ["Platzhaltertext: Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."] },
-        { h: "Haftung für Links", p: ["Platzhaltertext: Unser Angebot enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben."] },
-        { h: "Urheberrecht", p: ["Platzhaltertext: Die durch die Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht."] }
+        { h: "Haftung für Inhalte", p: ["Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."] },
+        { h: "Haftung für Links", p: ["Unser Angebot enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben."] },
+        { h: "Urheberrecht", p: ["Die durch die Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht."] }
       ]
     },
     privacy: {
       title: "Datenschutzerklärung",
-      note: "Platzhalter – bitte an die tatsächliche Nutzung anpassen und rechtlich prüfen lassen.",
       sections: [
-        { h: "1. Verantwortlicher", p: ["Morgenglut Filmproduktion GmbH (Platzhalter), Musterstraße 1, 12345 Musterstadt, E-Mail: hallo@example.com"] },
-        { h: "2. Hosting und Server-Logfiles", p: ["Platzhaltertext: Beim Aufruf dieser Website werden automatisch Informationen (z. B. IP-Adresse, Datum, Uhrzeit, aufgerufene Seite) in Server-Logfiles gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."] },
+        { h: "1. Verantwortlicher", p: ["Morgenglut Filmproduktion GmbH, Musterstraße 1, 12345 Musterstadt, E-Mail: hallo@example.com"] },
+        { h: "2. Hosting und Server-Logfiles", p: ["Beim Aufruf dieser Website werden automatisch Informationen (z. B. IP-Adresse, Datum, Uhrzeit, aufgerufene Seite) in Server-Logfiles gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."] },
         { h: "3. Schriftarten", p: ["Diese Website verwendet ausschließlich Systemschriften, die bereits auf deinem Gerät installiert sind. Es werden keine Schriften geladen und keine Daten an Schriftdienste übertragen."] },
         { h: "4. Externe Inhalte", p: ["Diese Website lädt keine Inhalte, Skripte oder Bilder von externen Servern Dritter."] },
         { h: "5. Spracheinstellung", p: ["Deine gewählte Sprache wird lokal in deinem Browser (localStorage) gespeichert. Es werden keine Daten an uns übertragen."] },
-        { h: "6. Kontaktaufnahme", p: ["Platzhaltertext: Wenn du uns per E-Mail kontaktierst, speichern wir deine Angaben zur Bearbeitung deiner Anfrage."] },
+        { h: "6. Kontaktaufnahme", p: ["Wenn du uns per E-Mail kontaktierst, speichern wir deine Angaben zur Bearbeitung deiner Anfrage."] },
         { h: "7. Deine Rechte", p: ["Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren."] }
       ]
     },
     footer: {
       tagline: "Unabhängige Filmproduktion",
       contactTitle: "Kontakt",
+      legalTitle: "Rechtliches",
       address: "Musterstraße 1<br>12345 Musterstadt",
       rights: "Alle Rechte vorbehalten."
     }
@@ -137,7 +136,8 @@ window.SITE_CONTENT = {
       home: "Home", films: "Films", about: "About Us",
       imprint: "Legal Notice", privacy: "Privacy Policy",
       menuOpen: "Open menu", menuClose: "Close menu",
-      langLabel: "Switch language to German", mainNav: "Main navigation"
+      langLabel: "Switch language to German", mainNav: "Main navigation",
+      skip: "Skip to content"
     },
     home: {
       hero: {
@@ -154,7 +154,6 @@ window.SITE_CONTENT = {
         ],
         cta: "More about us"
       },
-      featured: { title: "Selected films", all: "View all films" },
       quote: {
         text: "“Placeholder quote: A good film keeps you warm long after the credits roll.”",
         cite: "– Placeholder Name, festival jury"
@@ -209,35 +208,34 @@ window.SITE_CONTENT = {
     },
     imprint: {
       title: "Legal Notice",
-      note: "Placeholder – please replace with your real details and have them legally reviewed.",
       sections: [
-        { h: "Information pursuant to § 5 DDG", p: ["Morgenglut Filmproduktion GmbH (placeholder)<br>Musterstrasse 1<br>12345 Musterstadt<br>Germany"] },
+        { h: "Information pursuant to § 5 DDG", p: ["Morgenglut Filmproduktion GmbH<br>Musterstrasse 1<br>12345 Musterstadt<br>Germany"] },
         { h: "Represented by", p: ["First Last, Managing Director"] },
         { h: "Contact", p: ["Phone: +49 (0) 123 456789<br>Email: hallo@example.com"] },
         { h: "Commercial register", p: ["Entry in the commercial register.<br>Court: Local Court Musterstadt<br>Register number: HRB 00000"] },
         { h: "VAT ID", p: ["VAT identification number pursuant to § 27a UStG: DE000000000"] },
         { h: "Responsible for content (§ 18 (2) MStV)", p: ["First Last, address as above"] },
-        { h: "Liability for content", p: ["Placeholder text: As a service provider we are responsible for our own content on these pages in accordance with general laws."] },
-        { h: "Liability for links", p: ["Placeholder text: Our site may contain links to external third-party websites over whose content we have no influence."] },
-        { h: "Copyright", p: ["Placeholder text: The content and works created by the site operators are subject to German copyright law."] }
+        { h: "Liability for content", p: ["As a service provider we are responsible for our own content on these pages in accordance with general laws."] },
+        { h: "Liability for links", p: ["Our site may contain links to external third-party websites over whose content we have no influence."] },
+        { h: "Copyright", p: ["The content and works created by the site operators are subject to German copyright law."] }
       ]
     },
     privacy: {
       title: "Privacy Policy",
-      note: "Placeholder – please adapt to your actual usage and have it legally reviewed.",
       sections: [
-        { h: "1. Controller", p: ["Morgenglut Filmproduktion GmbH (placeholder), Musterstrasse 1, 12345 Musterstadt, email: hallo@example.com"] },
-        { h: "2. Hosting and server log files", p: ["Placeholder text: When you visit this website, information (e.g. IP address, date, time, requested page) is automatically stored in server log files. The legal basis is Art. 6 (1) (f) GDPR."] },
+        { h: "1. Controller", p: ["Morgenglut Filmproduktion GmbH, Musterstrasse 1, 12345 Musterstadt, email: hallo@example.com"] },
+        { h: "2. Hosting and server log files", p: ["When you visit this website, information (e.g. IP address, date, time, requested page) is automatically stored in server log files. The legal basis is Art. 6 (1) (f) GDPR."] },
         { h: "3. Fonts", p: ["This website uses only system fonts that are already installed on your device. No fonts are downloaded and no data is transmitted to font services."] },
         { h: "4. External content", p: ["This website does not load any content, scripts or images from third-party servers."] },
         { h: "5. Language setting", p: ["Your selected language is stored locally in your browser (localStorage). No data is transmitted to us."] },
-        { h: "6. Contact", p: ["Placeholder text: If you contact us by email, we store your details to process your enquiry."] },
+        { h: "6. Contact", p: ["If you contact us by email, we store your details to process your enquiry."] },
         { h: "7. Your rights", p: ["You have the right to access, rectification, erasure, restriction of processing, data portability and objection. You may also lodge a complaint with a data protection supervisory authority."] }
       ]
     },
     footer: {
       tagline: "Independent film production",
       contactTitle: "Contact",
+      legalTitle: "Legal",
       address: "Musterstrasse 1<br>12345 Musterstadt",
       rights: "All rights reserved."
     }
