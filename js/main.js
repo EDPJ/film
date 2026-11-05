@@ -242,6 +242,53 @@
     }
   }
 
+  /* ---------- Header an verfügbaren Platz anpassen ----------
+     Stufe 1: Reicht die Breite nicht für Menü in einer Zeile → Burger-Menü.
+     Stufe 2: Reicht sie auch mit Burger nicht → Markenname ausblenden, nur Logo.
+     Gemessen wird die tatsächliche Breite der Elemente, es gibt keine feste Grenze. */
+  var MIN_GAP = 24; // Mindestabstand zwischen den Header-Elementen in px
+
+  function fitHeader() {
+    var body = document.body;
+    var inner = app.querySelector(".header__inner");
+    if (!inner) return;
+
+    var langBtn = inner.querySelector(".lang-switch");
+    var brand = inner.querySelector(".brand");
+    var nav = inner.querySelector(".nav-desktop");
+    var burger = inner.querySelector(".burger");
+
+    // Ausgangszustand: volle Ansicht messen
+    body.classList.remove("compact-nav", "compact-brand");
+
+    var cs = window.getComputedStyle(inner);
+    var avail = inner.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+
+    function needed(sideWidth) {
+      // Marke steht mittig, links und rechts ist gleich viel Platz reserviert
+      return brand.offsetWidth + 2 * Math.max(langBtn.offsetWidth, sideWidth) + 2 * MIN_GAP;
+    }
+
+    if (needed(nav.offsetWidth) > avail) {
+      body.classList.add("compact-nav");
+      if (needed(burger.offsetWidth) > avail) {
+        body.classList.add("compact-brand");
+      }
+    } else if (document.body.classList.contains("menu-open")) {
+      setMenu(false);   // Burger-Menü war offen, wird aber nicht mehr gebraucht
+    }
+  }
+
+  var resizeQueued = false;
+  window.addEventListener("resize", function () {
+    if (resizeQueued) return;
+    resizeQueued = true;
+    window.requestAnimationFrame(function () {
+      resizeQueued = false;
+      fitHeader();
+    });
+  });
+
   /* ---------- Scroll-Animation ---------- */
   var observer = null;
   function reveal() {
@@ -315,9 +362,16 @@
     desc.setAttribute("content", meta.description || "");
 
     app.innerHTML = headerHtml(t) + '<main id="main">' + pageHtml(t) + '</main>' + footerHtml(t);
+    fitHeader();   // vor dem ersten Zeichnen: richtige Header-Variante wählen
     bind();
     reveal();
   }
 
   render();
+
+  // Sicherheitshalber nach dem vollständigen Laden noch einmal messen
+  window.addEventListener("load", fitHeader);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitHeader);
+  }
 })();
