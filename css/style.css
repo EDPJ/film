@@ -2,6 +2,8 @@
    STYLE – Farben & Schriften kommen aus js/config.js
    Hover-Effekte gelten nur bei Geräten mit Maus (hover: hover),
    damit auf Touch-Geräten (iPad, Handy) nichts "hängen bleibt".
+   Textlinks sind immer unterstrichen. Im mobilen Menü sind
+   Impressum/Datenschutz nur auf der aktiven Seite unterstrichen.
    ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; -webkit-tap-highlight-color: transparent; }
@@ -28,6 +30,13 @@ body.menu-open { overflow: hidden; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 
+/* Textlinks: immer unterstrichen */
+p a, .text-link, .site-footer a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
 /* Bedienelemente: keine Auswahl-/Tipp-Markierung auf Touch-Geräten */
 button {
   -webkit-appearance: none; appearance: none;
@@ -53,6 +62,7 @@ p + p { margin-top: 1rem; }
 .skip-link {
   position: absolute; left: -999px; top: 0; z-index: 100;
   background: var(--terracotta); color: var(--cream); padding: .6rem 1rem;
+  text-decoration: none;
 }
 .skip-link:focus { left: 0; }
 
@@ -140,9 +150,10 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: none; 
 .mobile-menu a { text-decoration: none; font-family: var(--font-heading); letter-spacing: .04em; color: var(--cream); }
 .mobile-menu__main { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .mobile-menu__main a { font-size: clamp(1.9rem, 8.5vw, 2.8rem); }
+.mobile-menu__main a.is-active { text-decoration: underline; text-underline-offset: 8px; }
 .mobile-menu__legal { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-.mobile-menu__legal a { font-size: 1.1rem; opacity: .85; }
-.mobile-menu a.is-active { text-decoration: underline; text-underline-offset: 8px; }
+.mobile-menu .mobile-menu__legal a { font-size: 1.1rem; opacity: .85; text-decoration: none; }
+.mobile-menu .mobile-menu__legal a.is-active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; opacity: 1; }
 .mobile-menu__logo { width: 64px; height: 64px; opacity: .9; }
 
 /* Kompakt-Modi (per JS gesetzt, wenn der Platz nicht reicht) */
@@ -215,10 +226,7 @@ body.compact-brand .brand__name { display: none; }
   .btn--light:hover { background: transparent; color: var(--cream); border-color: var(--cream); }
 }
 
-.text-link { font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: .04em; color: var(--terracotta); text-decoration: none; }
-@media (hover: hover) {
-  .text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
-}
+.text-link { font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: .04em; color: var(--terracotta); }
 
 /* ---------- Filter ---------- */
 .chips { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 2rem; }
@@ -267,10 +275,6 @@ body.compact-brand .brand__name { display: none; }
 .footer__brand img { width: 56px; height: 56px; margin-bottom: 1rem; }
 .footer__name { font-family: var(--font-heading); font-size: 1.4rem; letter-spacing: .04em; }
 .site-footer h3 { color: var(--cream); font-size: 1.2rem; }
-.site-footer a { text-decoration: none; }
-@media (hover: hover) {
-  .site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
-}
 .footer__links { list-style: none; padding: 0; }
 .footer__bottom { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid rgba(251, 249, 245, .25); opacity: .85; }
 @media (max-width: 700px) { .footer__grid { grid-template-columns: 1fr; } }
