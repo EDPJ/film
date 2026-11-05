@@ -20,7 +20,7 @@
   var lang = loadLang();
   var filter = "all";
 
-  /* ---------- Sprache ---------- */
+  /* ---------- Sprache (localStorage, Schlüssel "lang") ---------- */
   function loadLang() {
     try {
       var saved = localStorage.getItem("lang");
@@ -44,6 +44,12 @@
     return arr.map(function (p) { return "<p>" + p + "</p>"; }).join("");
   }
 
+  /* Logo mit fester Größe: reserviert den Platz sofort, damit nichts springt */
+  function logoImg(src, size, cls) {
+    return '<img' + (cls ? ' class="' + cls + '"' : '') +
+      ' src="' + src + '" alt="" width="' + size + '" height="' + size + '" decoding="sync">';
+  }
+
   /* ---------- Header & mobiles Menü ---------- */
   function headerHtml(t) {
     return '' +
@@ -54,7 +60,7 @@
           '<span class="lang-switch__sep">|</span>' +
           '<span class="' + (lang === "en" ? "is-active" : "") + '">EN</span>' +
         '</button>' +
-        '<a class="brand" href="index.html"><img src="' + cfg.logos.dark + '" alt="">' +
+        '<a class="brand" href="index.html">' + logoImg(cfg.logos.dark, 40) +
           '<span class="brand__name">' + cfg.brand.name + '</span></a>' +
         '<nav class="nav-desktop" aria-label="' + t.nav.mainNav + '">' +
           navLink(t, "home") + navLink(t, "films") + navLink(t, "about") +
@@ -68,7 +74,7 @@
           navLink(t, "home") + navLink(t, "films") + navLink(t, "about") +
         '</nav>' +
         '<div class="mobile-menu__legal">' + navLink(t, "imprint") + navLink(t, "privacy") + '</div>' +
-        '<img class="mobile-menu__logo" src="' + cfg.logos.light + '" alt="">' +
+        logoImg(cfg.logos.light, 64, "mobile-menu__logo") +
       '</div>';
   }
 
@@ -79,7 +85,7 @@
       '<footer class="site-footer"><div class="container">' +
         '<div class="footer__grid">' +
           '<div class="footer__brand">' +
-            '<img src="' + cfg.logos.light + '" alt="" width="56">' +
+            logoImg(cfg.logos.light, 56) +
             '<div class="footer__name">' + cfg.brand.name + '</div>' +
             '<p>' + f.tagline + '</p>' +
           '</div>' +
@@ -124,7 +130,7 @@
       '</div></section>' +
 
       '<section class="band band--terracotta"><div class="container band__inner reveal">' +
-        '<img src="' + cfg.logos.light + '" alt="" width="56">' +
+        logoImg(cfg.logos.light, 56) +
         '<blockquote>' + h.quote.text + '</blockquote>' +
         '<p>' + h.quote.cite + '</p>' +
       '</div></section>' +
