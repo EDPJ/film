@@ -2,8 +2,9 @@
    STYLE – Farben & Schriften kommen aus js/config.js
    Hover-Effekte gelten nur bei Geräten mit Maus (hover: hover),
    damit auf Touch-Geräten (iPad, Handy) nichts "hängen bleibt".
-   Textlinks sind immer unterstrichen. Im mobilen Menü sind
-   Impressum/Datenschutz nur auf der aktiven Seite unterstrichen.
+   Textlinks: auf Touch-Geräten immer unterstrichen, mit Maus nur
+   beim Hover. Im mobilen Menü sind Impressum/Datenschutz nur auf
+   der aktiven Seite unterstrichen.
    ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; -webkit-tap-highlight-color: transparent; }
@@ -30,11 +31,17 @@ body.menu-open { overflow: hidden; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 
-/* Textlinks: immer unterstrichen */
+/* Textlinks: auf Touch-Geräten immer unterstrichen, mit Maus nur beim Hover */
 p a, .text-link, .site-footer a {
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
+}
+@media (hover: none) {
+  p a, .text-link, .site-footer a { text-decoration: underline; }
+}
+@media (hover: hover) {
+  p a:hover, .text-link:hover, .site-footer a:hover { text-decoration: underline; }
 }
 
 /* Bedienelemente: keine Auswahl-/Tipp-Markierung auf Touch-Geräten */
